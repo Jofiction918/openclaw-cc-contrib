@@ -1,5 +1,5 @@
 ---
-name: dream
+name: dream-rem
 version: 1.0.0
 description: "定时深度整合记忆：每天一次，当积累足够新会话后，自动四阶段整理记忆，合并新信息，删除过时内容，优化索引。"
 license: MIT

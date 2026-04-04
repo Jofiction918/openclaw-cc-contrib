@@ -1,5 +1,5 @@
 ---
-name: memory-review
+name: memory-sorting
 version: 1.0.0
 description: "整理记忆文件，检测重复/过时/冲突内容，生成修改提案等待用户审批，保持记忆系统整洁有序。"
 license: MIT
