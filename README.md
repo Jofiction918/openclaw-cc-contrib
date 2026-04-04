@@ -33,13 +33,24 @@ flowchart LR
 
 ## 📦 安装
 
-### 方法 1: OpenClaw Skill 市场（推荐）
+### 方法 1: ClawhHub 安装（推荐）
 
-1. 打开 OpenClaw → 技能市场
-2. 搜索「memory」或「记忆」，找到对应 Skill
-3. 安装 `extract-memories` / `memory-sorting` / `dream-rem`（三者可独立使用）
+在 OpenClaw 技能市场搜索并安装各技能名称：
 
-### 方法 2: 手动安装
+| 技能 | ClawhHub 搜索关键词 |
+|------|---------------------|
+| extract-memories | `extract-memories` |
+| memory-sorting | `memory-sorting` |
+| dream-rem | `dream-rem` |
+
+### 方法 2: GitHub URL 安装
+
+将仓库地址直接丢给 OpenClaw：
+```
+https://github.com/Jofiction918/openclaw-cc-contrib
+```
+
+### 方法 3: 手动安装
 
 ```bash
 mkdir -p ~/.openclaw/skills/

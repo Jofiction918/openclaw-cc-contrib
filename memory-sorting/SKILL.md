@@ -1,7 +1,7 @@
 ---
 name: memory-sorting
 version: 1.0.1
-description: "👗 像换季时整理衣柜一样——检测重复、过时、冲突的记忆条目，生成整理提案由你审批，让记忆系统始终井井有条。"
+description: "检测重复/过时/冲突记忆，生成整理提案等你审批 / 触发词：整理记忆、记忆整理、梳理记忆 / 命令：/memory-sorting"
 license: MIT
 triggers:
   - 整理记忆
