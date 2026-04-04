@@ -1,17 +1,17 @@
 ---
 name: memory-sorting
 version: 1.0.0
-description: "整理记忆文件，检测重复/过时/冲突内容，生成修改提案等待用户审批，保持记忆系统整洁有序。"
+description: "👗 像换季时整理衣柜一样——检测重复、过时、冲突的记忆条目，生成整理提案由你审批，让记忆系统始终井井有条。"
 license: MIT
 triggers:
   - 整理记忆
   - 记忆整理
   - 梳理记忆
-  - memory-review
-  - "/memory-review"
+  - memory-sorting
+  - "/memory-sorting"
 ---
 
-# memory-review — 记忆分层整理
+# memory-sorting — 像整理衣柜一样整理记忆
 
 整理 `MEMORY.md` 和 `memory/*.md`，自动检测：
 - **重复内容**：已经在 `MEMORY.md` 的条目，自动提示删除重复
