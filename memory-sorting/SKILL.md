@@ -1,6 +1,6 @@
 ---
 name: memory-sorting
-version: 1.0.0
+version: 1.0.1
 description: "👗 像换季时整理衣柜一样——检测重复、过时、冲突的记忆条目，生成整理提案由你审批，让记忆系统始终井井有条。"
 license: MIT
 triggers:

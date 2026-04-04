@@ -1,6 +1,6 @@
 ---
 name: dream-rem
-version: 1.0.0
+version: 1.0.1
 description: "🧠 像人类 REM 睡眠期一样定时深度整合记忆——每晚休眠时自动整理、合并、删除过时内容，让记忆常读常新。"
 license: MIT
 triggers:
