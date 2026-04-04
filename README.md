@@ -10,7 +10,7 @@
 
 ```mermaid
 flowchart LR
-    A[extract-memories<br/>对话结束自动提炼] --> B[memory-sorting<br/>整理归纳] --> C[dream (REM)<br/>REM睡眠式整合]
+    A[extract-memories<br>对话结束自动提炼] --> B[memory-sorting<br>整理归纳] --> C[dream (REM)<br>REM睡眠式整合]
     style A fill:#e1f5fe
     style B fill:#fff2e6
     style C fill:#d3eafd
