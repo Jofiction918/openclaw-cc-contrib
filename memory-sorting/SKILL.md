@@ -1,6 +1,6 @@
 ---
 name: memory-sorting
-version: 1.0.1
+version: 1.0.2
 description: "检测重复/过时/冲突记忆，生成整理提案等你审批 / 触发词：整理记忆、记忆整理、梳理记忆 / 命令：/memory-sorting"
 license: MIT
 triggers:

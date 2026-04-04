@@ -1,6 +1,6 @@
 ---
 name: dream-rem
-version: 1.0.1
+version: 1.0.2
 description: "定时深度整合记忆，自动合并新信息删除过时内容 / 触发词：深度整理记忆、梦境整理、整合记忆 / 命令：/dream-rem"
 license: MIT
 triggers:
