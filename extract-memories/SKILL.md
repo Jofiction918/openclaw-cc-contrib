@@ -1,12 +1,11 @@
 ---
 name: extract-memories
-version: 1.0.0
+version: 1.0.1
 description: "对话结束后自动提炼本轮对话中的关键记忆，写入 memory/ 目录持久化存储，解决「每次对话都要重新说一遍背景」的痛点。"
 license: MIT
 triggers:
   - 提取记忆
   - 提炼记忆
-  - 提取记忆
   - extract-memories
   - "/extract-memories"
 ---
