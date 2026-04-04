@@ -64,6 +64,6 @@ triggers:
 - 需要 `FileWrite` 权限
 - 需要 `sessions_spawn` 能力（fork 子 Agent）
 
-## 参考 Claude Code 原始设计
+## 参考 CC 原始设计
 
-本 Skill 提取自 Claude Code 源码的 `extractMemories` 模块，遵循其设计思想适配 OpenClaw。
+本 Skill 提取自 CC 源码的 `extractMemories` 模块，遵循其设计思想适配 OpenClaw。

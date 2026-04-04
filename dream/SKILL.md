@@ -66,4 +66,4 @@ triggers:
 - 需要 `sessions_spawn` fork 子 Agent
 
 ## 参考
-本 Skill 基于 Claude Code 源码 `autoDream` 模块设计，适配 OpenClaw 记忆系统。
+本 Skill 基于 CC 源码 `autoDream` 模块设计，适配 OpenClaw 记忆系统。

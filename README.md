@@ -1,12 +1,12 @@
 # openclaw-memory-skills
-> 从 Claude Code 逆向提取，移植到 OpenClaw 的一套完整记忆系统 Skill：**extract-memories → memory-review → dream**
+> 从 CC 逆向提取，移植到 OpenClaw 的一套完整记忆系统 Skill：**extract-memories → memory-review → dream**
 
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![openclaw](https://img.shields.io/badge/for-openclaw-%F0%9F%92%9A-blue)](https://openclaw.org/)
 
 ## 📖 简介
 
-从 Claude Code 源码逆向提取，移植到 OpenClaw 的一套完整记忆系统 Skill，实现 AI 助手「越用越懂你」：
+从 CC 源码逆向提取，移植到 OpenClaw 的一套完整记忆系统 Skill，实现 AI 助手「越用越懂你」：
 
 ```mermaid
 flowchart LR
@@ -56,7 +56,7 @@ cp -r dream ~/.openclaw/skills/
 
 ## 🎯 项目信息
 
-- 提取来源: [Claude Code 2.1.88](https://github.com/anthropics/claude-code)
+- 提取来源: CC 2.1.88
 - 移植适配: [真维斯 @ Weavemind](https://weavemind.com)
 - 许可证: MIT
 

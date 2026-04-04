@@ -57,4 +57,4 @@ triggers:
 - 需要 `sessions_spawn` 提案分析（可选）
 
 ## 参考
-本 Skill 基于 Claude Code 源码 `remember.ts` 设计，适配 OpenClaw 记忆系统。
+本 Skill 基于 CC 源码 `remember.ts` 设计，适配 OpenClaw 记忆系统。
