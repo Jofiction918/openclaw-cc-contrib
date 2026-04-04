@@ -35,7 +35,9 @@ flowchart LR
 
 ### 方法 1: OpenClaw Skill 市场（推荐）
 
-1. 打开 OpenClaw → 技能市场 → 搜索「记忆系统」→ 安装
+1. 打开 OpenClaw → 技能市场
+2. 搜索「memory」或「记忆」，找到对应 Skill
+3. 安装 `extract-memories` / `memory-sorting` / `dream-rem`（三者可独立使用）
 
 ### 方法 2: 手动安装
 
