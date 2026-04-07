@@ -1,6 +1,6 @@
 ---
 name: extract-memories
-version: 3.0.4
+version: 3.0.5
 description: "对话结束时主动提炼关键记忆到 topic 文件（提醒型自动）/ 触发词：提炼记忆、提取记忆 / 命令：/extract-memories"
 license: MIT
 triggers:
