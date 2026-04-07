@@ -45,6 +45,13 @@ triggers:
 
 扫描 `memory/*.md`，提取最新结论，用于判断 topics 内容是否过时。
 
+**进入 Step 2 前，必须先输出以下核查清单，缺少任何一项不得开始检测：**
+
+- [ ] **topics/ 文件清单**：列出所有 topic 文件（`ls topics/*.md`）
+- [ ] **frontmatter 抽查结果**：每个文件是否有效 frontmatter，列出 type 字段
+- [ ] **孤儿文件清单**：topics 存在但 MEMORY.md 无索引的文件
+- [ ] **daily 文件清单**：列出所有被扫描的 daily 文件
+
 ### Step 2 — 六类问题系统性检测
 
 | 类型 | 检测方法 | 标记 |
