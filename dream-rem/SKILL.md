@@ -15,6 +15,38 @@ triggers:
 
 定时深度整合：将分散的 daily 日记提炼合并到 topic 文件，删除过时内容，保持 `MEMORY.md` 简洁可用。
 
+## 安装后配置
+
+首次安装后，请在 OpenClaw 控制台执行以下命令创建定时任务：
+
+```
+/cron add name="记忆深度整合（Dream）" everyMs=7200000 sessionTarget=isolated timeoutSeconds=600 payload.kind=agentTurn payload.message="检查并执行记忆深度整合（dream-rem）。
+
+1. 读取 memory/heartbeat-state.json，取 sessionCount 和 lastDreamAt
+2. 自增 sessionCount
+3. 若满足以下条件之一，触发整合：
+   a. sessionCount >= 5 且距 lastDreamAt 已过 24 小时（86400000ms）
+   b. 距 lastDreamAt 已过 72 小时（强制整合）
+4. 触发时：读取 MEMORY.md、最近14天 memory/*.md，按四阶段执行（Orient→Gather→Consolidate→Prune）
+5. 更新 heartbeat-state.json，重置 sessionCount
+6. 若不满足条件，回复 HEARTBEAT_OK"
+```
+
+**触发条件**：
+- sessionCount >= 5 **且** 距上次整合 > 24小时
+- 或距上次整合 > 72小时（强制整合，防止记忆碎片化）
+
+**心跳状态文件**：需确保 `memory/heartbeat-state.json` 存在，内容如下：
+```json
+{
+  "lastExtraction": null,
+  "lastDreamAt": null,
+  "sessionCount": 0
+}
+```
+
+---
+
 ## 触发机制
 
 ### 触发方式一：Cron 定时检测（主要）

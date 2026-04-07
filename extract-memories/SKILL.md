@@ -14,6 +14,21 @@ triggers:
 
 对话结束时主动分析本轮对话，将值得持久化的信息写入 `memory/topics/` 下的独立 topic 文件，同时更新 `MEMORY.md` 索引。
 
+## 安装后配置
+
+首次安装后，请确保 `memory/heartbeat-state.json` 文件存在，内容如下：
+```json
+{
+  "lastExtraction": null,
+  "lastDreamAt": null,
+  "sessionCount": 0,
+  "lastEmailCheck": null,
+  "lastCalendarCheck": null
+}
+```
+
+---
+
 ## 触发机制
 
 ### 主会话主动触发（主要）
