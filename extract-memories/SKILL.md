@@ -1,6 +1,6 @@
 ---
 name: extract-memories
-version: 2.3.0
+version: 3.0.0
 description: "对话结束时主动提炼关键记忆到 topic 文件（提醒型自动）/ 触发词：提炼记忆、提取记忆 / 命令：/extract-memories"
 license: MIT
 triggers:
@@ -10,11 +10,11 @@ triggers:
   - "/extract-memories"
 ---
 
-# extract-memories v2.3.0 — 对话记忆提炼
+# extract-memories v3.0.0 — 对话记忆提炼
 
 对话结束时主动分析本轮对话，将值得持久化的信息写入 `memory/topics/` 下的独立 topic 文件，同时更新 `MEMORY.md` 索引。
 
-## 触发机制（v2.3.0 诚实版）
+## 触发机制
 
 ### 主会话主动触发（主要）
 
@@ -69,32 +69,31 @@ memory/
 ### body 结构示例
 
 **feedback 示例**：
-```markdown
-集成测试必须用真实数据库，不能用 mock。
-**Why:** 上次 mock 测试通过了，但 prod 迁移时才发现行为不一致，导致故障。
-**How to apply:** 任何涉及数据库的测试优先用真实实例而非 mock 对象。
-```
+
+> 集成测试必须用真实数据库，不能用 mock。
+> **Why:** 上次 mock 测试通过了，但 prod 迁移时才发现行为不一致，导致故障。
+> **How to apply:** 任何涉及数据库的测试优先用真实实例而非 mock 对象。
 
 **project 示例**：
-```markdown
-非关键 PR 合并冻结：2026-04-05 起，所有非关键 PR 暂停合并。
-**Why:** 移动端团队需要从 release 分支切出，周五前完成代码冻结。
-**How to apply:** 评估任何计划中的 PR 是否属于"非关键"，若是则延后。
-```
+
+> 非关键 PR 合并冻结：2026-04-05 起，所有非关键 PR 暂停合并。
+> **Why:** 移动端团队需要从 release 分支切出，周五前完成代码冻结。
+> **How to apply:** 评估任何计划中的 PR 是否属于"非关键"，若是则延后。
 
 ---
 
 ## 提炼输出
 
-提炼完成后提示：
-```markdown
-已为您提炼本轮记忆 ✅
+提炼完成后提示示例：
 
-写入位置：memory/topics/
-
-### user / feedback / project / reference
-...
-```
+> 已为您提炼本轮记忆 ✅
+> 写入位置：memory/topics/
+> ### user
+> - [名称]: description
+>   body
+> ### feedback
+> - [名称]: description
+>   body
 
 ---
 
@@ -156,4 +155,4 @@ type: user / feedback / project / reference
 
 ---
 
-*本 Skill 基于 CC 记忆系统 extractMemories 设计，适配 OpenClaw v2.3.0*
+*本 Skill 基于 CC 记忆系统 extractMemories 设计，适配 OpenClaw v3.0.0*
