@@ -1,7 +1,7 @@
 ---
 name: extract-memories
-version: 2.0.0
-description: "对话结束后自动提炼关键记忆到 topic 文件 / 触发词：提炼记忆、提取记忆 / 命令：/extract-memories"
+version: 2.3.0
+description: "对话结束时主动提炼关键记忆到 topic 文件（提醒型自动）/ 触发词：提炼记忆、提取记忆 / 命令：/extract-memories"
 license: MIT
 triggers:
   - 提炼记忆
@@ -10,14 +10,37 @@ triggers:
   - "/extract-memories"
 ---
 
-# extract-memories v2.0.0 — 对话记忆提炼
+# extract-memories v2.3.0 — 对话记忆提炼
 
-对话结束后自动分析本轮对话，将值得持久化的信息写入 `memory/topics/` 下的独立 topic 文件，同时更新 `MEMORY.md` 索引。
+对话结束时主动分析本轮对话，将值得持久化的信息写入 `memory/topics/` 下的独立 topic 文件，同时更新 `MEMORY.md` 索引。
 
-## 何时使用
+## 触发机制（v2.3.0 诚实版）
 
-- **自动触发**：每次对话结束自动后台执行
-- 手动触发：`/extract-memories`
+### 主会话主动触发（主要）
+
+每次对话结束时，主 agent 会：
+1. 检测结束模式：中文（`再见`/`bye`/`下次见`/`拜拜`/`结束了`/`先这样`）或英文（`bye`/`see you`/`that's all`）
+2. 检测到结束模式 → 主动执行记忆提炼
+3. 提炼完成后提示："已为您提炼本轮记忆 ✅"
+
+> **注意**：主动触发依赖 agent 侧实现。建议在 AGENTS.md 中加入一行：
+> ```
+> 对话结束时，主动调用 /extract-memories 提炼关键记忆。
+> ```
+> 这样可以确保每次对话结束都会自动执行。
+
+### Heartbeat 辅助检测
+
+每次 heartbeat 时检查：
+- 最近消息是否匹配结束模式
+- 或距上次提炼是否超过 30 分钟
+- 若满足条件则触发提炼
+
+### 手动触发
+
+- 命令：`/extract-memories`
+
+---
 
 ## 核心概念
 
@@ -26,6 +49,7 @@ triggers:
 ```
 memory/
 ├── MEMORY.md              ← 纯索引（一行一个指针，不含记忆内容）
+├── heartbeat-state.json   ← 状态记录（lastExtraction 时间戳）
 └── topics/               ← 所有记忆文件
     ├── user_role.md
     ├── feedback_concise.md
@@ -60,45 +84,16 @@ memory/
 
 ---
 
-## 输出模板（固定格式）
+## 提炼输出
 
-提炼完成后，在主会话输出：
-
+提炼完成后提示：
 ```markdown
-## {{YYYY-MM-DD}} 记忆提炼
+已为您提炼本轮记忆 ✅
 
-提炼结果：N条
 写入位置：memory/topics/
 
-### user
-- [名称]: description（用途：用于 relevance 匹配）
-  body
-
-### feedback
-- [名称]: description
-  body
-  **Why:** 原因
-  **How to apply:** 何时适用
-
-### project
-- [名称]: description
-  body（含绝对日期）
-  **Why:** 动机
-  **How to apply:** 如何影响工作
-
-### reference
-- [名称]: description
-  URL/路径 + 用途说明
-
----
-
-**本次提炼规则**：
-- 只用最近 N 条对话，不额外调查/grep/查源码
-- 优先更新已有 topic 文件，不新建重复记忆
-- 按主题组织，不按时间顺序
-- 不保存代码结构/文件路径/Git历史/调试方案/CLAUDE.md已有内容/临时状态
-- 使用记忆时：引用文件/函数/配置前必须验证当前仍存在
-- 记忆是时间点观察，不是实时状态——引用前需验证是否仍准确
+### user / feedback / project / reference
+...
 ```
 
 ---
@@ -147,34 +142,18 @@ type: user / feedback / project / reference
 
 ---
 
-## 文件结构
-
-```
-memory/
-├── MEMORY.md              ← 纯索引（一行一个指针）
-└── topics/
-    ├── user_role.md
-    ├── feedback_concise.md
-    ├── project_deadline.md
-    ├── reference_linear.md
-    └── ...
-```
-
-topics/ 目录初始为空，由本 skill 和 dream-rem 逐步填充。
-
----
-
 ## 权限要求
 
-- `FileRead`：读取对话上下文
-- `FileWrite` / `FileEdit`：写入 `memory/topics/` 和 `MEMORY.md`
-- `sessions_spawn`：（可选）fork 子 Agent
+- `FileRead`：读取对话上下文、MEMORY.md、topics/
+- `FileWrite` / `FileEdit`：写入 `memory/topics/`、`MEMORY.md`、`memory/heartbeat-state.json`
+- `sessions_history`：读取主会话消息（heartbeat 触发时）
 
 ## 触发词
 
-- 自动：对话结束（skill 内置触发逻辑）
+- 自动：主会话主动检测结束模式（提醒型）
+- 自动：Heartbeat 检测（辅助）
 - 手动：`/extract-memories`
 
 ---
 
-*本 Skill 基于 Claude Code 记忆系统 extractMemories 设计，适配 OpenClaw v2.0.0*
+*本 Skill 基于 CC 记忆系统 extractMemories 设计，适配 OpenClaw v2.3.0*

@@ -193,4 +193,4 @@ memory/*.md 或 memory/logs/        ← daily 日记（作为时间线参考）
 
 ---
 
-*本 Skill 基于 Claude Code 记忆系统 remember 设计，适配 OpenClaw v2.0.0*
+*本 Skill 基于 CC 记忆系统 remember 设计，适配 OpenClaw v2.0.0*
