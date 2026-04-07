@@ -1,6 +1,6 @@
 ---
 name: memory-sorting
-version: 3.0.0
+version: 3.0.2
 description: "像整理衣柜一样整理记忆，检测重复/过时/冲突，生成提案等你批准 / 触发词：整理记忆、记忆整理 / 命令：/memory-sorting"
 license: MIT
 triggers:
