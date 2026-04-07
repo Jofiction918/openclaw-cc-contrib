@@ -1,6 +1,6 @@
 ---
 name: dream-rem
-version: 3.0.10
+version: 3.1.0
 description: "深度整合记忆，将 daily 日记提炼到 topic 文件，清理过时内容 / 触发词：深度整合、梦境整理 / 命令：/dream-rem"
 license: MIT
 triggers:
@@ -11,7 +11,7 @@ triggers:
   - "/dream-rem"
 ---
 
-# dream-rem v3.0.0 — 睡梦式记忆深度整合
+# dream-rem v3.1.0 — 睡梦式记忆深度整合
 
 定时深度整合：将分散的 daily 日记提炼合并到 topic 文件，删除过时内容，保持 `MEMORY.md` 简洁可用。
 
@@ -90,10 +90,20 @@ openclaw cron add --name "记忆深度整合（Dream）" --every 12h --session i
 
 ### Phase 2 — Gather（收集信号）
 
-1. 扫描最近 14 天的 daily 文件（或 `logs/` 目录）
-2. 识别值得提炼的新信息（对照已有 topic 清单，避免重复）
-3. 识别已被推翻的旧记忆（对比 daily 新结论和 topic 旧内容）
-4. 识别矛盾（同一事实在不同文件说法不一致）
+**硬性要求：必须完整扫描所有 daily 文件，不得跳过任何文件。**
+
+1. **列出所有 daily 文件**：先执行 `ls memory/*.md` 或 `ls memory/logs/`，得到完整清单
+2. **逐个读取每个文件**：不得只读最新的或只读部分文件
+3. **建立扫描记录**：列出已扫描的文件清单，格式：
+   > 已扫描文件（共 N 个）：
+   > - memory/2026-04-01.md ✓
+   > - memory/2026-04-03.md ✓
+   > - ...
+4. **识别新信息**：对照已有 topic 清单，标记哪些 daily 内容值得新增/追加
+5. **识别过时内容**：逐个对比 topic 文件和 daily 新结论，标记矛盾或被推翻的内容
+6. **识别矛盾**：同一事实在不同文件说法不一致，标记冲突
+
+**核查点**：若扫描后发现"无新信息"，必须再次确认已扫描全部 daily 文件，不得仅凭一个文件就下结论。
 
 ### Phase 3 — Consolidate（整合执行）
 
@@ -194,4 +204,4 @@ openclaw cron add --name "记忆深度整合（Dream）" --every 12h --session i
 
 ---
 
-*本 Skill 基于 CC 记忆系统 autoDream 设计，适配 OpenClaw v3.0.0*
+*本 Skill 基于 CC 记忆系统 autoDream 设计，适配 OpenClaw v3.1.0*
