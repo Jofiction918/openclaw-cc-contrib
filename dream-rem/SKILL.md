@@ -17,10 +17,10 @@ triggers:
 
 ## 安装后配置
 
-首次安装后，请在 OpenClaw 控制台执行以下命令创建定时任务：
+首次安装后，请在终端执行以下命令创建定时任务：
 
-```
-/cron add name="记忆深度整合（Dream）" everyMs=7200000 sessionTarget=isolated timeoutSeconds=600 payload.kind=agentTurn payload.message="检查并执行记忆深度整合（dream-rem）。
+```bash
+openclaw cron add --name "记忆深度整合（Dream）" --every 2h --session isolated --timeout-seconds 600 --message "检查并执行记忆深度整合（dream-rem）。
 
 1. 读取 memory/heartbeat-state.json，取 sessionCount 和 lastDreamAt
 2. 自增 sessionCount
@@ -29,7 +29,7 @@ triggers:
    b. 距 lastDreamAt 已过 72 小时（强制整合）
 4. 触发时：读取 MEMORY.md、最近14天 memory/*.md，按四阶段执行（Orient→Gather→Consolidate→Prune）
 5. 更新 heartbeat-state.json，重置 sessionCount
-6. 若不满足条件，回复 HEARTBEAT_OK"
+6. 若不满足条件，回复 HEARTBEAT_OK" --announce
 ```
 
 **触发条件**：
