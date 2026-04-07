@@ -99,16 +99,22 @@ memory/
 
 ## 提炼输出
 
-提炼完成后提示示例：
+提炼完成后提示：
 
 > 已为您提炼本轮记忆 ✅
 > 写入位置：memory/topics/
+>
+> **提炼结果：2条**
+>
 > ### user
-> - [名称]: description
->   body
-> ### feedback
-> - [名称]: description
->   body
+> - [记忆系统触发机制修复v3]: 记录三件套触发机制修复方案
+>   核心问题：OpenClaw 无 conversation-end 钩子，skill 描述夸大
+>
+> ### project
+> - [记忆系统触发机制修复v3]: 记录三件套触发机制修复方案
+>   桌面说明文件路径需同步更新
+>   **Why:** 三端版本对齐问题反复出现
+>   **How to apply:** 按 UPDATE_FLOW.md 规范执行
 
 ---
 
